@@ -23,7 +23,7 @@ public class MemoryMemberRepository implements MemberRepository{
     }
 
     @Override
-    public List<Member> findAllId() {  // 맵에 저장된 모든 id와 이름을 리턴하는 메소드 (이름 내림차순)
+    public List<Member> findAllId() {  // 맵에 저장된 모든 id와 이름을 리턴하는 메소드 (이름 오름차순)
         return account.values().stream().sorted(Comparator.comparing(Member::getName)).toList(); // store에 있는 모든 value를 ArrayList에 담아서 반환;
     }
 
