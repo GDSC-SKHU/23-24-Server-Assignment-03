@@ -1,6 +1,5 @@
 package com.gdsc.hellospring.dto;
 
-import com.gdsc.hellospring.domain.Item;
 import lombok.Builder;
 import lombok.Data;
 
@@ -16,16 +15,6 @@ public class ItemDto {
         this.id = id;
         this.name = name;
         this.count = count;
-    }
-
-    // ItemDto -> Item
-    // Builder를 사용해서 ItemDto를 Item으로 변환
-    public Item toEntity() {
-        return Item.builder()
-                .id(id)
-                .name(name)
-                .count(count)
-                .build();
     }
 
 }
