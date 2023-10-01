@@ -6,6 +6,7 @@ import com.gdsc.soccerapi.dto.PlayerDto;
 import com.gdsc.soccerapi.repository.PlayerRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,6 +40,7 @@ public class PlayerService {
     public List<PlayerDto> findAllPlayer(){  // 클라이언트에게 응답을 하기 위해 DTO를 이용. 그래서 반환값으로 DTO값을 넘겨줌
         return playerRepository.findAll()
                 .stream()
+                .sorted(Comparator.comparing(Player::sortAge)) // 플레이어 클래스가 sortAge 메소드를 참조/ 나이순으로 정렬
                 .map(Player::toDto) // 플레이어 클래스가 toDto 메서드를 참조하는 메서드 레퍼런스.
                 .toList();
     }
@@ -51,4 +53,5 @@ public class PlayerService {
         Player player = playerDto.toPlayer();
         playerRepository.updateById(id,player);
     }
+
 }

@@ -39,4 +39,7 @@ public class Player {
                 .build();
 
     }
+    public int sortAge(){
+    return age;
+    } // 나이 순으로 정렬하기 위한 인트 반환형 메소드
 }
