@@ -4,6 +4,7 @@ import org.springframework.stereotype.Repository;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Repository
 public class MemoryReviewRepository implements ReviewRepository{
@@ -20,6 +21,18 @@ public class MemoryReviewRepository implements ReviewRepository{
     public Review findById(Long id) {
         return store.get(id);
     }
+    @Override
+    public List<Review> findByRestaurantName(String restaurantName){
+        return store.values()
+                .stream()
+                .filter(review -> review.getRestaurantName().equals(restaurantName))
+                .collect(Collectors.toList());      }
+    @Override
+    public List<Review> findByReviewerName(String reviewerName){
+        return store.values()
+                .stream()
+                .filter(review -> review.getReviewerName().equals(reviewerName))
+                .collect(Collectors.toList());      }
 
     @Override
     public List<Review> findAll() {

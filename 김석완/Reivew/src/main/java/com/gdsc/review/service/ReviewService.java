@@ -6,6 +6,7 @@ import com.gdsc.review.repository.ReviewRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ReviewService {
@@ -38,6 +39,33 @@ public class ReviewService {
                 .build();
     }
 
+    public List<ReviewDto> findReviewByRestaurantName(String restaurantName){
+        List<Review> reviews = reviewRepository.findByRestaurantName(restaurantName);
+
+        return reviews.stream()
+                .map(review -> ReviewDto.builder()
+                        .id(review.getId())
+                        .restaurantName(review.getRestaurantName())
+                        .reviewerName(review.getReviewerName())
+                        .content(review.getContent())
+                        .rating(review.getRating())
+                        .build())
+                .collect(Collectors.toList());
+    }
+
+    public List<ReviewDto> findReviewByReviewerName(String reviewerName){
+        List<Review> reviews = reviewRepository.findByReviewerName(reviewerName);
+
+        return reviews.stream()
+                .map(review -> ReviewDto.builder()
+                        .id(review.getId())
+                        .restaurantName(review.getRestaurantName())
+                        .reviewerName(review.getReviewerName())
+                        .content(review.getContent())
+                        .rating(review.getRating())
+                        .build())
+                .collect(Collectors.toList());
+    }
     public List<ReviewDto> findAllReview(){
         return reviewRepository.findAll()
                 .stream()

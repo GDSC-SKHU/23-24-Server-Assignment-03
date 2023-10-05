@@ -20,9 +20,19 @@ public class ReviewController {
         reviewService.saveReview(reviewDto);
     }
 
-    @GetMapping("reviews/{id}")
+    @GetMapping("reviews_id/{id}")
     public ReviewDto findReviewById(@PathVariable Long id) {
         return reviewService.findReviewById(id);
+    }
+
+    @GetMapping("reviews_restaurant/{restaurantName}")
+    public List<ReviewDto> findReviewByRestaurantName(@PathVariable String restaurantName) {
+        return reviewService.findReviewByRestaurantName(restaurantName);
+    }
+
+    @GetMapping("reviews_reviewer/{reviewerName}")
+    public List<ReviewDto> findReviewByReviewerName(@PathVariable String reviewerName) {
+        return reviewService.findReviewByReviewerName(reviewerName);
     }
 
     @GetMapping("reviews")
