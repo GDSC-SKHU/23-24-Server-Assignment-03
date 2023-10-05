@@ -23,7 +23,8 @@ public class MemoryBookRepository implements BookRepository { // MemoryBookRepos
 
     @Override
     public Book findByName(String name) { // 책 찾기
-        return bookstore.get(name); // name에 해당하는 book을 찾아서 리턴
+        return bookstore.values().stream().filter(book -> book.getName().equals(name)).findFirst().orElse(null);
+                 // name에 해당하는 book을 찾아서 리턴
     }
     @Override
     public List<Book> findAll() { // 책 전체조회

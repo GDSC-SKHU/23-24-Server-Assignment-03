@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RestController
 public class BookController {
 
     private final BookService bookService;
@@ -26,9 +27,9 @@ public class BookController {
     }
 
 
-    @GetMapping("books/{name}") // 책 name으로 조회
+    @GetMapping("books_name/{name}") // 책 name으로 조회
     public BookDto findBookByName(@PathVariable String name){
-        return bookService.findBookById(Long.valueOf(name));
+        return bookService.findBookByName(name);
     }
 
     @GetMapping("books") // 책 전체조회
