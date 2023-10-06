@@ -43,6 +43,7 @@ public class MusicService {
                 .map(music -> MusicDto.builder()
                         .id(music.getId())
                         .name(music.getName())
+                        .artist(music.getArtist())
                         .build())
                 .toList();
     }
