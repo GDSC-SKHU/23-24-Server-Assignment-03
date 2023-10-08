@@ -1,7 +1,5 @@
 # 23-24 Assignment template
 
-## 사용하는 방법
+## 나만의 REST API 만들기 과제
 
-1. 레포를 생성할 때 해당 템플릿을 선택합니다.
-2. `.github/CODEOWNER`에 해당 파트 Core 멤버를 추가합니다.
-3. [`Auto assign`](https://github.com/apps/auto-assign) 앱을 등록합니다.
+<img width="1247" alt="image" src="https://github.com/GDSC-SKHU/23-24-Server-Assignment-03/assets/107793780/9dd5f2a7-8e32-4d90-bdb5-4e42e4b5dcfc">
